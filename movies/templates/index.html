@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <title>zZombie</title>
+    <meta name="description" content="Free Responsive Html5 Css3 Templates | zerotheme.com">
+    <meta name="author" content="www.zerotheme.com">
+
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS
+  ================================================== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/zerogrid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/component.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <!--[if lt IE 8]>
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+            <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"
+                 height="42" width="820"
+                 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+        </a>
+    </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <script src="js/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <link href="{{ url_for('static', filename='images/favicon.ico') }}" rel='icon' type='image/x-icon'/>
+
+</head>
+<body>
+<div class="wrap-body">
+
+    <!--////////////////////////////////////Header-->
+    <header>
+        <div class="top-header">
+            <div class="wrap-top zerogrid">
+                <nav>
+                    <a class="toggleMenu" href="#">Menu</a>
+                    <ul class="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#" class="parent">Categories</a>
+                            <ul>
+                                <li><a href="#">Menu 1001</a></li>
+                                <li><a href="#">Menu 1002</a></li>
+                                <li><a href="#" class="parent">Menu 1003</a>
+                                    <ul>
+                                        <li><a href="#">Menu 3001</a></li>
+                                        <li><a href="#">Menu 3002</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="single.html">Blog</a></li>
+                        <li><a href="single.html">About</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="wrap-header">
+            <div class="zerogrid">
+                <div id="logo"><a href="index.html"><img src="./images/logo.png"/></a></div>
+                <div class="header-social">
+                    <a href="#"><img src="images/facebook.png" title="facebook"/></a>
+                    <a href="#"><img src="images/twitter.png" title="twitter"/></a>
+                    <a href="#"><img src="images/google.png" title="google"/></a>
+                    <a href="#"><img src="images/pinterest.png" title="pinterest"/></a>
+                    <a href="#"><img src="images/instagram.png" title="instagram"/></a>
+                </div>
+                <div class="header-search">
+                    <center>
+                        <form method="get" action="/search" id="search">
+                            <input name="q" type="text" size="40" placeholder="Type key to search"/>
+                        </form>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!--////////////////////////////////////Container-->
+    <section id="container">
+        <div class="wrap-container zerogrid">
+            <div class="row">
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <article class="bg-red">
+                            <div class="art-header">
+                                <a href="single.html"><img src="images/img1.jpg"/></a>
+                            </div>
+                            <div class="art-content">
+                                <div class="col-1-3 right">
+                                    <div class="wrap-col">
+                                        <div class="info">
+                                            <ul class="clearfix">
+                                                <li><a href="#"><img src="images/avatar.png"/>Administrator</a></li>
+                                                <li><a href="#">March 1, 2015</a></li>
+                                                <li><a href="#">Technology</a></li>
+                                                <li class="last"><a href="#">Leave a comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-3 bg-white">
+                                    <div class="wrap-col">
+                                        <div class="main-post">
+                                            <h2 class="title"><a href="single.html">Nunc vitae hendrerit leo</a></h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia
+                                                diam in congue ullamcorper. Phasellus quis iaculis risus, vitae dictum
+                                                mauris. Donec id laoreet nisi. Proin porta tempor turpis non imperdiet.
+                                                Nulla eros risus, aliquet non laoreet nec, accumsan sit amet tellus.
+                                                Mauris vitae odio elit. Mauris tellus est, fermentum in molestie
+                                                placerat, ullamcorper at [...]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <article class="bg-yellow">
+                            <div class="art-header">
+                                <a href="single.html"><img src="images/img2.jpg"/></a>
+                            </div>
+                            <div class="art-content">
+                                <div class="col-1-3">
+                                    <div class="wrap-col">
+                                        <div class="info">
+                                            <ul class="clearfix">
+                                                <li><a href="#"><img src="images/avatar.png"/>Administrator</a></li>
+                                                <li><a href="#">February 1, 2015</a></li>
+                                                <li><a href="#">Technology</a></li>
+                                                <li class="last"><a href="#">Leave a comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-3 bg-white">
+                                    <div class="wrap-col">
+                                        <div class="main-post">
+                                            <h2 class="title"><a href="single.html">Nunc vitae hendrerit leo</a></h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia
+                                                diam in congue ullamcorper. Phasellus quis iaculis risus, vitae dictum
+                                                mauris. Donec id laoreet nisi. Proin porta tempor turpis non imperdiet.
+                                                Nulla eros risus, aliquet non laoreet nec, accumsan sit amet tellus.
+                                                Mauris vitae odio elit. Mauris tellus est, fermentum in molestie
+                                                placerat, ullamcorper at [...]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <article class="bg-green">
+                            <div class="art-header">
+                                <a href="single.html"><img src="images/img3.jpg"/></a>
+                            </div>
+                            <div class="art-content">
+                                <div class="col-1-3 right">
+                                    <div class="wrap-col">
+                                        <div class="info">
+                                            <ul class="clearfix">
+                                                <li><a href="#"><img src="images/avatar.png"/>Administrator</a></li>
+                                                <li><a href="#">February 1, 2015</a></li>
+                                                <li><a href="#">Technology</a></li>
+                                                <li class="last"><a href="#">Leave a comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-3 bg-white">
+                                    <div class="wrap-col">
+                                        <div class="main-post">
+                                            <h2 class="title"><a href="single.html">Nunc vitae hendrerit leo</a></h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia
+                                                diam in congue ullamcorper. Phasellus quis iaculis risus, vitae dictum
+                                                mauris. Donec id laoreet nisi. Proin porta tempor turpis non imperdiet.
+                                                Nulla eros risus, aliquet non laoreet nec, accumsan sit amet tellus.
+                                                Mauris vitae odio elit. Mauris tellus est, fermentum in molestie
+                                                placerat, ullamcorper at [...]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <article class="bg-red">
+                            <div class="art-header">
+                                <a href="single.html"><img src="images/img4.jpg"/></a>
+                            </div>
+                            <div class="art-content">
+                                <div class="col-1-3">
+                                    <div class="wrap-col">
+                                        <div class="info">
+                                            <ul class="clearfix">
+                                                <li><a href="#"><img src="images/avatar.png"/>Administrator</a></li>
+                                                <li><a href="#">February 1, 2015</a></li>
+                                                <li><a href="#">Technology</a></li>
+                                                <li class="last"><a href="#">Leave a comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-3 bg-white">
+                                    <div class="wrap-col">
+                                        <div class="main-post">
+                                            <h2 class="title"><a href="single.html">Nunc vitae hendrerit leo</a></h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia
+                                                diam in congue ullamcorper. Phasellus quis iaculis risus, vitae dictum
+                                                mauris. Donec id laoreet nisi. Proin porta tempor turpis non imperdiet.
+                                                Nulla eros risus, aliquet non laoreet nec, accumsan sit amet tellus.
+                                                Mauris vitae odio elit. Mauris tellus est, fermentum in molestie
+                                                placerat, ullamcorper at [...]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <article class="bg-blue">
+                            <div class="art-header">
+                                <a href="single.html"><img src="images/img5.jpg"/></a>
+                            </div>
+                            <div class="art-content">
+                                <div class="col-1-3 right">
+                                    <div class="wrap-col">
+                                        <div class="info">
+                                            <ul class="clearfix">
+                                                <li><a href="#"><img src="images/avatar.png"/>Administrator</a></li>
+                                                <li><a href="#">February 1, 2015</a></li>
+                                                <li><a href="#">Technology</a></li>
+                                                <li class="last"><a href="#">Leave a comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-3 bg-white">
+                                    <div class="wrap-col">
+                                        <div class="main-post">
+                                            <h2 class="title"><a href="single.html">Nunc vitae hendrerit leo</a></h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia
+                                                diam in congue ullamcorper. Phasellus quis iaculis risus, vitae dictum
+                                                mauris. Donec id laoreet nisi. Proin porta tempor turpis non imperdiet.
+                                                Nulla eros risus, aliquet non laoreet nec, accumsan sit amet tellus.
+                                                Mauris vitae odio elit. Mauris tellus est, fermentum in molestie
+                                                placerat, ullamcorper at [...]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <article class="bg-green">
+                            <div class="art-header">
+                                <a href="single.html"><img src="images/img6.jpg"/></a>
+                            </div>
+                            <div class="art-content">
+                                <div class="col-1-3 left">
+                                    <div class="wrap-col">
+                                        <div class="info">
+                                            <ul class="clearfix">
+                                                <li><a href="#"><img src="images/avatar.png"/>Administrator</a></li>
+                                                <li><a href="#">February 1, 2015</a></li>
+                                                <li><a href="#">Technology</a></li>
+                                                <li class="last"><a href="#">Leave a comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-3 bg-white">
+                                    <div class="wrap-col">
+                                        <div class="main-post">
+                                            <h2 class="title"><a href="single.html">Nunc vitae hendrerit leo</a></h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia
+                                                diam in congue ullamcorper. Phasellus quis iaculis risus, vitae dictum
+                                                mauris. Donec id laoreet nisi. Proin porta tempor turpis non imperdiet.
+                                                Nulla eros risus, aliquet non laoreet nec, accumsan sit amet tellus.
+                                                Mauris vitae odio elit. Mauris tellus est, fermentum in molestie
+                                                placerat, ullamcorper at [...]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <article class="bg-red">
+                            <div class="art-header">
+                                <a href="single.html"><img src="images/img7.jpg"/></a>
+                            </div>
+                            <div class="art-content">
+                                <div class="col-1-3 right">
+                                    <div class="wrap-col">
+                                        <div class="info">
+                                            <ul class="clearfix">
+                                                <li><a href="#"><img src="images/avatar.png"/>Administrator</a></li>
+                                                <li><a href="#">February 1, 2015</a></li>
+                                                <li><a href="#">Technology</a></li>
+                                                <li class="last"><a href="#">Leave a comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-3 bg-white">
+                                    <div class="wrap-col">
+                                        <div class="main-post">
+                                            <h2 class="title"><a href="single.html">Nunc vitae hendrerit leo</a></h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia
+                                                diam in congue ullamcorper. Phasellus quis iaculis risus, vitae dictum
+                                                mauris. Donec id laoreet nisi. Proin porta tempor turpis non imperdiet.
+                                                Nulla eros risus, aliquet non laoreet nec, accumsan sit amet tellus.
+                                                Mauris vitae odio elit. Mauris tellus est, fermentum in molestie
+                                                placerat, ullamcorper at [...]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <article class="bg-blue">
+                            <div class="art-header">
+                                <a href="single.html"><img src="images/img8.jpg"/></a>
+                            </div>
+                            <div class="art-content">
+                                <div class="col-1-3 left">
+                                    <div class="wrap-col">
+                                        <div class="info">
+                                            <ul class="clearfix">
+                                                <li><a href="#"><img src="images/avatar.png"/>Administrator</a></li>
+                                                <li><a href="#">February 1, 2015</a></li>
+                                                <li><a href="#">Technology</a></li>
+                                                <li class="last"><a href="#">Leave a comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-3 bg-white">
+                                    <div class="wrap-col">
+                                        <div class="main-post">
+                                            <h2 class="title"><a href="single.html">Nunc vitae hendrerit leo</a></h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia
+                                                diam in congue ullamcorper. Phasellus quis iaculis risus, vitae dictum
+                                                mauris. Donec id laoreet nisi. Proin porta tempor turpis non imperdiet.
+                                                Nulla eros risus, aliquet non laoreet nec, accumsan sit amet tellus.
+                                                Mauris vitae odio elit. Mauris tellus est, fermentum in molestie
+                                                placerat, ullamcorper at [...]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" class="clearfix">
+            <ul>
+                <li><a class="current" href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">next</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!--////////////////////////////////////Footer-->
+    <footer>
+        <div class="copyright">
+            <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank"
+                                                                         href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+            </p>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/navigation.js"></script>
+</body>
+</html>
