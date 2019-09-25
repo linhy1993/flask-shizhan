@@ -51,7 +51,7 @@ class MovieSpider(object):
             release_time = re.sub(u"\\(.*?\\)", "", time)
             score = movie.find(name='p', attrs={'score'}).get_text()
             img_url = movie.find(name='img', attrs={'board-img'}).get('data-src')
-            download_img(img_url)
+            # download_img(img_url)
             yield {
                 'name': self.clean_string(name),
                 'stars': self.clean_string(stars),
