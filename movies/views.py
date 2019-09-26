@@ -8,7 +8,7 @@ mod = Blueprint('movie', __name__)
 
 @mod.route('/')
 def index():
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 @mod.route('/movies/')

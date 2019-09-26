@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import time
 from hashlib import md5
 
 import requests
@@ -40,24 +41,41 @@ class MovieSpider(object):
             except Exception:
                 return None
 
+    def get_movie_intro(self, movie_intro_url):
+        print(movie_intro_url)
+        time.sleep(2)
+        try:
+            response = requests.get(url=movie_intro_url, headers=headers)
+            print(response.status_code)
+            if response.status_code == 200:
+                # parse html
+                html = response.text
+                soup = BeautifulSoup(html, 'lxml')
+                movie_info = soup.find(name='div', attrs={'mod-content'}).get_text().strip()
+                # movie_url = soup.find(name='img', attrs={'avatar'}).get('src')
+                return movie_info
+        except Exception:
+            return None
+
     def parse_html(self, html):
         soup = BeautifulSoup(html, 'lxml')
         movies_info = soup.find_all(name='dd')
-        # movies_info = soup.find_all(name='div', attrs={"class": "board-item-content"})
         for movie in movies_info:
             name = movie.find(name='p', attrs={'name'}).get_text()
             stars = movie.find(name='p', attrs={'star'}).get_text()[3:]
             time = movie.find(name='p', attrs={'releasetime'}).get_text()[5:]
             release_time = re.sub(u"\\(.*?\\)", "", time)
-            score = movie.find(name='p', attrs={'score'}).get_text()
             img_url = movie.find(name='img', attrs={'board-img'}).get('data-src')
-            # download_img(img_url)
+            score = movie.find(name='p', attrs={'score'}).get_text()
+            movie_intro_url = 'https://maoyan.com' + movie.find(name='a').get('href')
+            movie_info = self.get_movie_intro(movie_intro_url)
             yield {
                 'name': self.clean_string(name),
                 'stars': self.clean_string(stars),
                 'release_time': release_time,
                 'score': score,
-                'img_url': img_url
+                'img_url': img_url,
+                'info': movie_info,
             }
 
     def run_spider(self):
@@ -70,9 +88,11 @@ class MovieSpider(object):
                 item.release_time = movie_info['release_time']
                 item.score = movie_info['score']
                 item.img_url = movie_info['img_url']
+                item.info = movie_info['info']
                 db.session.add(item)
-        # commit after finish
-        db.session.commit()
+            # commit after finish
+            db.session.commit()
+        db.session.close()
 
 
 def download_img(url):

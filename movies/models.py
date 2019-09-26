@@ -12,6 +12,7 @@ class MaoyanMovie(db.Model):
     release_time = db.Column(db.String)
     score = db.Column(db.Float)
     img_url = db.Column(db.String)
+    info = db.Column(db.String)
 
 
 def init_db():
