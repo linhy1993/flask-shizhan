@@ -41,7 +41,6 @@
                     </figure>
                 </div>
             </div>
-            <!-- end portfolio item -->
         </div>
         <div class="row row-0-gutter">
             <!-- start portfolio item -->
@@ -106,10 +105,22 @@
             </div>
             <!-- end portfolio item -->
         </div>
+        {% if pagination.has_prev %}
+        <a href="/{{ pagination.prev_num }}">上一页</a>
+        {% endif %}
+        页码：
+        {% for i in pagination.iter_pages() %}
+            {% if i %}
+                <a href="/{{ i }}">{{ i }}</a>
+            {% else %}
+                <span class=ellipsis>…</span>
+            {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <a href="/{{ pagination.next_num }}">下一页</a>
+        {% endif %}
     </div><!-- container -->
 </section>
-
-<!-- Modal for portfolio item 1 -->
 <div class="modal fade" id="Modal-1" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -129,8 +140,6 @@
         </div>
     </div>
 </div>
-
-<!-- Modal for portfolio item 2 -->
 <div class="modal fade" id="Modal-2" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -151,8 +160,6 @@
         </div>
     </div>
 </div>
-
-<!-- Modal for portfolio item 3 -->
 <div class="modal fade" id="Modal-3" tabindex="-1" role="dialog" aria-labelledby="Modal-label-3">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -173,8 +180,6 @@
         </div>
     </div>
 </div>
-
-<!-- Modal for portfolio item 4 -->
 <div class="modal fade" id="Modal-4" tabindex="-1" role="dialog" aria-labelledby="Modal-label-4">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -195,8 +200,6 @@
         </div>
     </div>
 </div>
-
-<!-- Modal for portfolio item 5 -->
 <div class="modal fade" id="Modal-5" tabindex="-1" role="dialog" aria-labelledby="Modal-label-5">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

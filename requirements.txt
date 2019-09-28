@@ -5,3 +5,4 @@ requests==2.21.0
 python-dateutil==2.8.0
 mysqlclient==1.4.2
 Flask-SQLAlchemy==2.4.0
+flask-paginate==0.5.3

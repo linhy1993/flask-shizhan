@@ -698,8 +698,24 @@ and (max-width: 480px) {
 }
 
 /*--------------------
-Img About
+Img Aboutuser
 --------------------*/
 .coverImg {
     object-fit: none;
+}
+/*--------------------
+Pagination
+--------------------*/
+.pagination-page-info {
+    padding: .6em;
+    padding-left: 0;
+    width: 40em;
+    margin: .5em;
+    margin-left: 0;
+    font-size: 12px;
+}
+.pagination-page-info b {
+    color: black;
+    background: #6aa6ed;
+    font-size: 150%;
 }
