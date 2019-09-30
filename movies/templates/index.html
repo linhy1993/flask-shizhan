@@ -134,8 +134,13 @@
                 </div>
                 <div class="modal-body">
                     <img src="{{ movie_shown[0].img_url }}" alt="img01" class="img-responsive"/>
-                    <div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+                    <div class="modal-works">
+                        {% set categories = movie_shown[0].category.split(',') %}
+                        {% for category in categories %}
+                            <span>{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ movie_shown[0].info }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -155,8 +160,13 @@
                 <div class="modal-body">
                     <img src="{{ movie_shown[1].img_url }}" alt="img01" class="img-responsive"/>
 
-                    <div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+                    <div class="modal-works">
+                        {% set categories = movie_shown[1].category.split(',') %}
+                        {% for category in categories %}
+                            <span>{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ movie_shown[1].info }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -176,8 +186,13 @@
                 <div class="modal-body">
                     <img src="{{ movie_shown[2].img_url }}" alt="img01" class="img-responsive"/>
 
-                    <div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+                    <div class="modal-works">
+                        {% set categories = movie_shown[2].category.split(',') %}
+                        {% for category in categories %}
+                            <span>{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ movie_shown[2].info }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -197,8 +212,13 @@
                 <div class="modal-body">
                     <img src="{{ movie_shown[3].img_url }}" alt="img01" class="img-responsive"/>
 
-                    <div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+                    <div class="modal-works">
+                        {% set categories = movie_shown[3].category.split(',') %}
+                        {% for category in categories %}
+                            <span>{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ movie_shown[3].info }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -218,8 +238,13 @@
                 <div class="modal-body">
                     <img src="{{ movie_shown[4].img_url }}" alt="img01" class="img-responsive"/>
 
-                    <div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+                    <div class="modal-works">
+                        {% set categories = movie_shown[4].category.split(',') %}
+                        {% for category in categories %}
+                            <span>{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ movie_shown[4].info }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -239,8 +264,13 @@
                 <div class="modal-body">
                     <img src="{{ movie_shown[5].img_url }}" alt="img01" class="img-responsive"/>
 
-                    <div class="modal-works"><span>Branding</span><span>Web Design</span></div>
-                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+                    <div class="modal-works">
+                        {% set categories = movie_shown[0].category.split(',') %}
+                        {% for category in categories %}
+                            <span>{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ movie_shown[5].info }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

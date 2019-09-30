@@ -52,8 +52,8 @@ class MovieSpider(object):
                 html = response.text
                 soup = BeautifulSoup(html, 'lxml')
                 movie_info = soup.find(name='div', attrs={'mod-content'}).get_text().strip()
-                # movie_url = soup.find(name='img', attrs={'avatar'}).get('src')
-                return movie_info
+                category = soup.find(name='li', attrs={'ellipsis'}).get_text().strip()
+                return movie_info, category
         except Exception:
             return None
 
@@ -68,7 +68,7 @@ class MovieSpider(object):
             img_url = movie.find(name='img', attrs={'board-img'}).get('data-src')
             score = movie.find(name='p', attrs={'score'}).get_text()
             movie_intro_url = 'https://maoyan.com' + movie.find(name='a').get('href')
-            movie_info = self.get_movie_intro(movie_intro_url)
+            movie_info, category = self.get_movie_intro(movie_intro_url)
             yield {
                 'name': self.clean_string(name),
                 'stars': self.clean_string(stars),
@@ -76,6 +76,7 @@ class MovieSpider(object):
                 'score': score,
                 'img_url': img_url,
                 'info': movie_info,
+                'category': category
             }
 
     def run_spider(self):
@@ -89,6 +90,7 @@ class MovieSpider(object):
                 item.score = movie_info['score']
                 item.img_url = movie_info['img_url']
                 item.info = movie_info['info']
+                item.category = movie_info['category']
                 db.session.add(item)
             # commit after finish
             db.session.commit()

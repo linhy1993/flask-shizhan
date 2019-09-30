@@ -13,6 +13,7 @@ class MaoyanMovie(db.Model):
     score = db.Column(db.Float)
     img_url = db.Column(db.String)
     info = db.Column(db.String)
+    category = db.Column(db.String)
 
 
 def init_db():
