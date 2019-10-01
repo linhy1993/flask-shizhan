@@ -11,11 +11,21 @@ mod = Blueprint('movie', __name__)
 
 
 @mod.route('/')
-def movies():
-    return render_template('home.html')
+@mod.route('/login/', methods=['GET', 'POST'])
+def user_login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = Users.query.filter_by(name=form.name.data).first()
+        if user is not None and user.pwd == form.pwd.data:
+            login_user(user)
+            return redirect(url_for('.movie_pages', page=1))
+        else:
+            return redirect(url_for('.user_login', form=form))
+    return render_template('user_login.html', form=form)
 
 
 @mod.route('/<int:page>/')
+@login_required
 def movie_pages(page=None):
     if page is None:
         page = 1
@@ -34,24 +44,11 @@ def contact():
     return render_template('contact.html')
 
 
-@mod.route('/login/', methods=['GET', 'POST'])
-def user_login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = Users.query.filter_by(name=form.name.data).first()
-        if user is not None and user.pwd == form.pwd.data:
-            login_user(user)
-            return redirect(url_for('.movies'))
-        else:
-            return redirect(url_for('.user_login', form=form))
-    return render_template('user_login.html', form=form)
-
-
 @mod.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('.movies'))
+    return redirect(url_for('.user_login'))
 
 
 @mod.route('/regist/', methods=['GET', 'POST'])

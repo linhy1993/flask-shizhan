@@ -18,13 +18,15 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 login_manger = LoginManager()
 login_manger.session_protection = 'strong'
-login_manger.login_view = 'movies.user_login'
+login_manger.login_view = 'movie.user_login'
 login_manger.init_app(app)
+
 
 @login_manger.user_loader
 def load_user(user_id):
     from models import Users
     return Users.query.get(int(user_id))
+
 
 from movies import views
 
