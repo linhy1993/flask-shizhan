@@ -2,7 +2,7 @@
 from flask import Blueprint, render_template, redirect, url_for, flash
 from flask import request
 from flask_login import login_user, logout_user, login_required
-
+from spider import MovieSpider
 from movies import db
 from movies.form import LoginForm, RegisterForm
 from movies.models import MaoyanMovie, Users
@@ -10,7 +10,6 @@ from movies.models import MaoyanMovie, Users
 mod = Blueprint('movie', __name__)
 
 
-@mod.route('/')
 @mod.route('/login/', methods=['GET', 'POST'])
 def user_login():
     form = LoginForm()
@@ -24,6 +23,7 @@ def user_login():
     return render_template('user_login.html', form=form)
 
 
+@mod.route('/')
 @mod.route('/<int:page>/')
 @login_required
 def movie_pages(page=None):
@@ -76,3 +76,11 @@ def user_regist():
         flash('注册成功')
         return redirect(url_for('.user_login', username=user.name))
     return render_template('user_regist.html', form=form)
+
+
+@mod.route('/update/', methods=['GET', 'POST'])
+def movie_update():
+    if request.method == 'POST':
+        spider = MovieSpider()
+        spider.run_spider()
+        return redirect(url_for('.movie_pages'))

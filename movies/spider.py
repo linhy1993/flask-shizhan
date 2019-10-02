@@ -42,11 +42,8 @@ class MovieSpider(object):
                 return None
 
     def get_movie_intro(self, movie_intro_url):
-        print(movie_intro_url)
-        time.sleep(2)
         try:
             response = requests.get(url=movie_intro_url, headers=headers)
-            print(response.status_code)
             if response.status_code == 200:
                 # parse html
                 html = response.text
@@ -80,21 +77,26 @@ class MovieSpider(object):
             }
 
     def run_spider(self):
-        clean_db()
-        for html in self.get_html():
-            for movie_info in self.parse_html(html):
-                item = MaoyanMovie()
-                item.name = movie_info['name']
-                item.stars = movie_info['stars']
-                item.release_time = movie_info['release_time']
-                item.score = movie_info['score']
-                item.img_url = movie_info['img_url']
-                item.info = movie_info['info']
-                item.category = movie_info['category']
-                db.session.add(item)
-            # commit after finish
-            db.session.commit()
-        db.session.close()
+        # clean_db()
+        try:
+            for html in self.get_html():
+                for movie_info in self.parse_html(html):
+                    item = MaoyanMovie()
+                    item.name = movie_info['name']
+                    item.stars = movie_info['stars']
+                    item.release_time = movie_info['release_time']
+                    item.score = movie_info['score']
+                    item.img_url = movie_info['img_url']
+                    item.info = movie_info['info']
+                    item.category = movie_info['category']
+                    exists = bool(MaoyanMovie.query.filter_by(name=item.name).first())
+                    if not exists:
+                        db.session.add(item)
+                # commit after finish
+                db.session.commit()
+        except Exception as e:
+            print(f'[ERROR]: {e}')
+            db.session.close()
 
 
 def download_img(url):

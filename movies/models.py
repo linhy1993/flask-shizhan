@@ -11,7 +11,7 @@ class MaoyanMovie(db.Model):
     __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+    name = db.Column(db.String, unique=True)
     stars = db.Column(db.String)
     release_time = db.Column(db.String)
     score = db.Column(db.Float)
@@ -50,8 +50,11 @@ class Users(UserMixin, db.Model):
         return False
 
 
-def init_db():
+def drop_db():
     db.drop_all()
+
+
+def init_db():
     db.create_all()
 
 
