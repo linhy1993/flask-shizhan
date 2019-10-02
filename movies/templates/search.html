@@ -1,6 +1,70 @@
 {% extends 'base.html' %}
 {% block content %}
-    <section id="portfolio">
-    <p>This search page</p>
-    </section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 jumbotron">
+            <div class="col-lg-12 text-center">
+                <div class="section-title">
+                    <h2>Search</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center form-group">
+                    <form action="{{ url_for('.search') }}" method="GET">
+                        <input name="query" type="text" value="{{ query }}"/>
+                        <label>
+                            <select name="condition">
+                                <option value="movie_name" {% if condition=="movie_name" %} selected {% endif %}>
+                                    电影名称
+                                </option>
+                                <option value="category" {% if condition=="category" %} selected {% endif %}>
+                                    电影类别
+                                </option>
+                                <option value="stars" {% if condition=="stars" %} selected {% endif %}>
+                                    电影明星
+                                </option>
+                                <option value="score" {% if condition=="score" %} selected {% endif %}>
+                                    电影评分
+                                </option>
+                                <option value="release_year" {% if condition=="release_year" %} selected {% endif %}>
+                                    上映年份
+                                </option>
+                            </select>
+                        </label>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h3 align="center" id="myheader">搜索结果</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>电影名称</th>
+                <th>电影明星</th>
+                <th>电影类别</th>
+                <th>上映时间</th>
+                <th>电影评分</th>
+            </tr>
+            </thead>
+            {% if movies_lst %}
+            <tbody>
+            {% for movie in movies_lst %}
+            <tr>
+                <td>{{ movie.name }}</td>
+                <td>{{ movie.stars }}</td>
+                <td>{{ movie.category }}</td>
+                <td>{{ movie.release_time }}</td>
+                <td>{{ movie.score }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            {% endif %}
+        </table>
+    </div>
+</div>
 {% endblock %}

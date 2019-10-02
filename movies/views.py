@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from flask import Blueprint, render_template, redirect, url_for, flash
+from flask import request
 from flask_login import login_user, logout_user, login_required
 
 from movies import db
 from movies.form import LoginForm, RegisterForm
 from movies.models import MaoyanMovie, Users
-from flask import request
 
 mod = Blueprint('movie', __name__)
 
@@ -34,14 +34,29 @@ def movie_pages(page=None):
     return render_template('index.html', movie_shown=movie_shown, pagination=pagination)
 
 
-@mod.route('/search/')
+@mod.route('/search/', methods=['GET'])
+@login_required
 def search():
+    if request.method == 'GET':
+        q = request.args.get('query')
+        condition = request.args.get('condition')
+
+        if not q or not condition:
+            return render_template('search.html')
+
+        movies_lst = []
+        if condition == 'movie_name':
+            movies_lst = MaoyanMovie.query.filter(MaoyanMovie.name.like(f'%{q}%')).order_by('score')
+        elif condition == 'release_year':
+            movies_lst = MaoyanMovie.query.filter(MaoyanMovie.release_time.contains(q)).order_by('release_time')
+        elif condition == 'stars':
+            movies_lst = MaoyanMovie.query.filter(MaoyanMovie.stars.contains(q)).order_by('score')
+        elif condition == 'score':
+            movies_lst = MaoyanMovie.query.filter(MaoyanMovie.score >= q).order_by('score')
+        elif condition == 'category':
+            movies_lst = MaoyanMovie.query.filter(MaoyanMovie.category.contains(q)).order_by('score')
+        return render_template('search.html', movies_lst=movies_lst, request=request, query=q)
     return render_template('search.html')
-
-
-@mod.route('/contact/')
-def contact():
-    return render_template('contact.html')
 
 
 @mod.route('/logout')

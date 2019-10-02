@@ -1,281 +1,282 @@
 {% extends 'base.html' %}
 {% block content %}
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-title">
-                        <h2></h2>
-                        <p>这是从猫眼电影网站收录的好评电影前100</p>
-                        <p>
-                            <a href="https://maoyan.com/board/4?offset=0">网站链接</a>
-                            <img src="{{ url_for('static', filename='images/favicon.ico') }}" alt="maoyan_icon"/>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-0-gutter">
-                <!-- start portfolio item -->
-                <div class="col-md-6 col-0-gutter">
-                    <div class="ot-portfolio-item">
-                        <figure class="effect-bubba">
-                            <img src="{{ movie_shown[0].img_url }}" alt="img02" class="coverImg"/>
-                            <figcaption>
-                                <h2>{{ movie_shown[0].name }}</h2>
-                                <p>Branding, Design</p>
-                                <a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end portfolio item -->
-                <!-- start portfolio item -->
-                <div class="col-md-6 col-0-gutter">
-                    <div class="ot-portfolio-item">
-                        <figure class="effect-bubba">
-                            <img src="{{ movie_shown[1].img_url }}" alt="img02" class="coverImg"/>
-
-                            <figcaption>
-                                <h2>{{ movie_shown[1].name }}</h2>
-                                <p>Branding, Web Design</p>
-                                <a href="#" data-toggle="modal" data-target="#Modal-2">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-0-gutter">
-                <!-- start portfolio item -->
-                <div class="col-md-6 col-0-gutter">
-                    <div class="ot-portfolio-item">
-                        <figure class="effect-bubba">
-                            <img src="{{ movie_shown[2].img_url }}" alt="img02" class="coverImg"/>
-                            <figcaption>
-                                <h2>{{ movie_shown[2].name }}</h2>
-                                <p>Branding, Web Design</p>
-                                <a href="#" data-toggle="modal" data-target="#Modal-3">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end portfolio item -->
-                <!-- start portfolio item -->
-                <div class="col-md-6 col-0-gutter">
-                    <div class="ot-portfolio-item">
-                        <figure class="effect-bubba">
-                            <img src="{{ movie_shown[3].img_url }}" alt="img02" class="coverImg"/>
-
-                            <figcaption>
-                                <h2>{{ movie_shown[3].name }}</h2>
-                                <p>Branding, Design</p>
-                                <a href="#" data-toggle="modal" data-target="#Modal-4">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end portfolio item -->
-            </div>
-            <div class="row row-0-gutter">
-                <!-- start portfolio item -->
-                <div class="col-md-6 col-0-gutter">
-                    <div class="ot-portfolio-item">
-                        <figure class="effect-bubba">
-                            <img src="{{ movie_shown[4].img_url }}" alt="img02" class="coverImg"/>
-
-                            <figcaption>
-                                <h2>{{ movie_shown[4].name }}</h2>
-                                <p>Branding, Web Design</p>
-                                <a href="#" data-toggle="modal" data-target="#Modal-5">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end portfolio item -->
-                <!-- start portfolio item -->
-                <div class="col-md-6 col-0-gutter">
-                    <div class="ot-portfolio-item">
-                        <figure class="effect-bubba">
-                            <img src="{{ movie_shown[5].img_url }}" alt="img02" class="coverImg"/>
-
-                            <figcaption>
-                                <h2>{{ movie_shown[5].name }}</h2>
-                                <p>Branding, Web Design</p>
-                                <a href="#" data-toggle="modal" data-target="#Modal-6">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end portfolio item -->
-            </div>
-            {% if pagination.has_prev %}
-                <a href="/{{ pagination.prev_num }}">上一页</a>
-            {% endif %}
-            页码：
-            {% for i in pagination.iter_pages() %}
-                {% if i %}
-                    <a href="/{{ i }}">{{ i }}</a>
-                {% else %}
-                    <span class=ellipsis>…</span>
-                {% endif %}
-            {% endfor %}
-            {% if pagination.has_next %}
-                <a href="/{{ pagination.next_num }}">下一页</a>
-            {% endif %}
-        </div><!-- container -->
-    </section>
-    <div class="modal fade" id="Modal-1" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="Modal-label-1">{{ movie_shown[0].name }}</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="{{ movie_shown[0].img_url }}" alt="img01" class="img-responsive"/>
-                    <div class="modal-works">
-                        {% set categories = movie_shown[0].category.split(',') %}
-                        {% for category in categories %}
-                            <span>{{ category }}</span>
-                        {% endfor %}
-                    </div>
-                    <p>{{ movie_shown[0].info }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+<section id="movies">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-title">
+                    <h2></h2>
+                    <p>这是从猫眼电影网站收录的好评电影前100</p>
+                    <p>
+                        <a href="https://maoyan.com/board/4?offset=0">网站链接</a>
+                        <img src="{{ url_for('static', filename='images/favicon.ico') }}" alt="maoyan_icon"/>
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="Modal-2" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="Modal-label-2">{{ movie_shown[1].name }}</h4>
+        <div class="row row-0-gutter">
+            <!-- start portfolio item -->
+            <div class="col-md-6 col-0-gutter">
+                <div class="ot-portfolio-item">
+                    <figure class="effect-bubba">
+                        <img src="{{ movie_shown[0].img_url }}" alt="img02" class="coverImg"/>
+                        <figcaption>
+                            <h2>{{ movie_shown[0].name }}</h2>
+                            <p>Branding, Design</p>
+                            <a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div class="modal-body">
-                    <img src="{{ movie_shown[1].img_url }}" alt="img01" class="img-responsive"/>
+            </div>
+            <!-- end portfolio item -->
+            <!-- start portfolio item -->
+            <div class="col-md-6 col-0-gutter">
+                <div class="ot-portfolio-item">
+                    <figure class="effect-bubba">
+                        <img src="{{ movie_shown[1].img_url }}" alt="img02" class="coverImg"/>
 
-                    <div class="modal-works">
-                        {% set categories = movie_shown[1].category.split(',') %}
-                        {% for category in categories %}
-                            <span>{{ category }}</span>
-                        {% endfor %}
-                    </div>
-                    <p>{{ movie_shown[1].info }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <figcaption>
+                            <h2>{{ movie_shown[1].name }}</h2>
+                            <p>Branding, Web Design</p>
+                            <a href="#" data-toggle="modal" data-target="#Modal-2">View more</a>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="Modal-3" tabindex="-1" role="dialog" aria-labelledby="Modal-label-3">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="Modal-label-3">{{ movie_shown[2].name }}</h4>
+        <div class="row row-0-gutter">
+            <!-- start portfolio item -->
+            <div class="col-md-6 col-0-gutter">
+                <div class="ot-portfolio-item">
+                    <figure class="effect-bubba">
+                        <img src="{{ movie_shown[2].img_url }}" alt="img02" class="coverImg"/>
+                        <figcaption>
+                            <h2>{{ movie_shown[2].name }}</h2>
+                            <p>Branding, Web Design</p>
+                            <a href="#" data-toggle="modal" data-target="#Modal-3">View more</a>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div class="modal-body">
-                    <img src="{{ movie_shown[2].img_url }}" alt="img01" class="img-responsive"/>
+            </div>
+            <!-- end portfolio item -->
+            <!-- start portfolio item -->
+            <div class="col-md-6 col-0-gutter">
+                <div class="ot-portfolio-item">
+                    <figure class="effect-bubba">
+                        <img src="{{ movie_shown[3].img_url }}" alt="img02" class="coverImg"/>
 
-                    <div class="modal-works">
-                        {% set categories = movie_shown[2].category.split(',') %}
-                        {% for category in categories %}
-                            <span>{{ category }}</span>
-                        {% endfor %}
-                    </div>
-                    <p>{{ movie_shown[2].info }}</p>
+                        <figcaption>
+                            <h2>{{ movie_shown[3].name }}</h2>
+                            <p>Branding, Design</p>
+                            <a href="#" data-toggle="modal" data-target="#Modal-4">View more</a>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            <!-- end portfolio item -->
+        </div>
+        <div class="row row-0-gutter">
+            <!-- start portfolio item -->
+            <div class="col-md-6 col-0-gutter">
+                <div class="ot-portfolio-item">
+                    <figure class="effect-bubba">
+                        <img src="{{ movie_shown[4].img_url }}" alt="img02" class="coverImg"/>
+
+                        <figcaption>
+                            <h2>{{ movie_shown[4].name }}</h2>
+                            <p>Branding, Web Design</p>
+                            <a href="#" data-toggle="modal" data-target="#Modal-5">View more</a>
+                        </figcaption>
+                    </figure>
                 </div>
+            </div>
+            <!-- end portfolio item -->
+            <!-- start portfolio item -->
+            <div class="col-md-6 col-0-gutter">
+                <div class="ot-portfolio-item">
+                    <figure class="effect-bubba">
+                        <img src="{{ movie_shown[5].img_url }}" alt="img02" class="coverImg"/>
+
+                        <figcaption>
+                            <h2>{{ movie_shown[5].name }}</h2>
+                            <p>Branding, Web Design</p>
+                            <a href="#" data-toggle="modal" data-target="#Modal-6">View more</a>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- end portfolio item -->
+        </div>
+        {% if pagination.has_prev %}
+        <a href="/{{ pagination.prev_num }}">上一页</a>
+        {% endif %}
+        页码：
+        {% for i in pagination.iter_pages() %}
+        {% if i %}
+        <a href="/{{ i }}">{{ i }}</a>
+        {% else %}
+        <span class=ellipsis>…</span>
+        {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <a href="/{{ pagination.next_num }}">下一页</a>
+        {% endif %}
+    </div><!-- container -->
+</section>
+
+<div class="modal fade" id="Modal-1" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="Modal-label-1">{{ movie_shown[0].name }}</h4>
+            </div>
+            <div class="modal-body">
+                <img src="{{ movie_shown[0].img_url }}" alt="img01" class="img-responsive"/>
+                <div class="modal-works">
+                    {% set categories = movie_shown[0].category.split(',') %}
+                    {% for category in categories %}
+                    <span>{{ category }}</span>
+                    {% endfor %}
+                </div>
+                <p>{{ movie_shown[0].info }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="Modal-4" tabindex="-1" role="dialog" aria-labelledby="Modal-label-4">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="Modal-label-4">{{ movie_shown[3].name }}</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="{{ movie_shown[3].img_url }}" alt="img01" class="img-responsive"/>
+</div>
+<div class="modal fade" id="Modal-2" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="Modal-label-2">{{ movie_shown[1].name }}</h4>
+            </div>
+            <div class="modal-body">
+                <img src="{{ movie_shown[1].img_url }}" alt="img01" class="img-responsive"/>
 
-                    <div class="modal-works">
-                        {% set categories = movie_shown[3].category.split(',') %}
-                        {% for category in categories %}
-                            <span>{{ category }}</span>
-                        {% endfor %}
-                    </div>
-                    <p>{{ movie_shown[3].info }}</p>
+                <div class="modal-works">
+                    {% set categories = movie_shown[1].category.split(',') %}
+                    {% for category in categories %}
+                    <span>{{ category }}</span>
+                    {% endfor %}
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                <p>{{ movie_shown[1].info }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="Modal-5" tabindex="-1" role="dialog" aria-labelledby="Modal-label-5">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="Modal-label-5">{{ movie_shown[4].name }}</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="{{ movie_shown[4].img_url }}" alt="img01" class="img-responsive"/>
+</div>
+<div class="modal fade" id="Modal-3" tabindex="-1" role="dialog" aria-labelledby="Modal-label-3">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="Modal-label-3">{{ movie_shown[2].name }}</h4>
+            </div>
+            <div class="modal-body">
+                <img src="{{ movie_shown[2].img_url }}" alt="img01" class="img-responsive"/>
 
-                    <div class="modal-works">
-                        {% set categories = movie_shown[4].category.split(',') %}
-                        {% for category in categories %}
-                            <span>{{ category }}</span>
-                        {% endfor %}
-                    </div>
-                    <p>{{ movie_shown[4].info }}</p>
+                <div class="modal-works">
+                    {% set categories = movie_shown[2].category.split(',') %}
+                    {% for category in categories %}
+                    <span>{{ category }}</span>
+                    {% endfor %}
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                <p>{{ movie_shown[2].info }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="Modal-6" tabindex="-1" role="dialog" aria-labelledby="Modal-label-6">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="Modal-label-6">{{ movie_shown[5].name }}</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="{{ movie_shown[5].img_url }}" alt="img01" class="img-responsive"/>
+</div>
+<div class="modal fade" id="Modal-4" tabindex="-1" role="dialog" aria-labelledby="Modal-label-4">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="Modal-label-4">{{ movie_shown[3].name }}</h4>
+            </div>
+            <div class="modal-body">
+                <img src="{{ movie_shown[3].img_url }}" alt="img01" class="img-responsive"/>
 
-                    <div class="modal-works">
-                        {% set categories = movie_shown[0].category.split(',') %}
-                        {% for category in categories %}
-                            <span>{{ category }}</span>
-                        {% endfor %}
-                    </div>
-                    <p>{{ movie_shown[5].info }}</p>
+                <div class="modal-works">
+                    {% set categories = movie_shown[3].category.split(',') %}
+                    {% for category in categories %}
+                    <span>{{ category }}</span>
+                    {% endfor %}
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                <p>{{ movie_shown[3].info }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="Modal-5" tabindex="-1" role="dialog" aria-labelledby="Modal-label-5">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="Modal-label-5">{{ movie_shown[4].name }}</h4>
+            </div>
+            <div class="modal-body">
+                <img src="{{ movie_shown[4].img_url }}" alt="img01" class="img-responsive"/>
+
+                <div class="modal-works">
+                    {% set categories = movie_shown[4].category.split(',') %}
+                    {% for category in categories %}
+                    <span>{{ category }}</span>
+                    {% endfor %}
+                </div>
+                <p>{{ movie_shown[4].info }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Modal-6" tabindex="-1" role="dialog" aria-labelledby="Modal-label-6">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="Modal-label-6">{{ movie_shown[5].name }}</h4>
+            </div>
+            <div class="modal-body">
+                <img src="{{ movie_shown[5].img_url }}" alt="img01" class="img-responsive"/>
+
+                <div class="modal-works">
+                    {% set categories = movie_shown[0].category.split(',') %}
+                    {% for category in categories %}
+                    <span>{{ category }}</span>
+                    {% endfor %}
+                </div>
+                <p>{{ movie_shown[5].info }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
